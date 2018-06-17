@@ -1,0 +1,19 @@
+version: '3.3'
+
+
+services:
+  postgres:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data:rw
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+    #   PGDATA: /var/lib/postgresql/data/pgdata
+    #   POSTGRES_USER: user
+    #   POSTGRES_DB: postgres
+
+volumes:
+  postgres_data:
+    driver: local
