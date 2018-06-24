@@ -1,9 +1,5 @@
 FROM postgres
 
-ENV POSTGRES_USER user
-ENV POSTGRES_PASSWORD password
+COPY ./init/ /docker-entrypoint-initdb.d/
 
-COPY ./ ./
-
-# ENTRYPOINT ["./entrypoint.sh"]
 CMD ["postgres"]

@@ -1,18 +1,19 @@
-version: '3.3'
-
+version: '2.1'
 
 services:
+
   postgres:
-    image: postgres:latest
+    build: .
+    restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data:rw
     ports:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: password
-    #   PGDATA: /var/lib/postgresql/data/pgdata
-    #   POSTGRES_USER: user
-    #   POSTGRES_DB: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: user
+      POSTGRES_DB: postgres
 
 volumes:
   postgres_data:
